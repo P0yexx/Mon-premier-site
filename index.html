@@ -1,29 +1,45 @@
-   <!DOCTYPE html>
-   <html lang="fr">
-   <head>
-     <meta charset="UTF-8">
-     <title>Accueil - P0yexx</title>
-     <style>
-       body {
-         display: flex;
-         flex-direction: column;
-         justify-content: center;
-         align-items: center;
-         height: 100vh;
-         margin: 0;
-         background: #181818;
-         color: #fff;
-         font-family: Arial, sans-serif;
-       }
-       h1 {
-         font-size: 5em;
-         margin: 0;
-         letter-spacing: 0.1em;
-         text-shadow: 2px 2px 8px #000;
-       }
-     </style>
-   </head>
-   <body>
-     <h1>P0yexx</h1>
-   </body>
-   </html>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Accueil - P0yexx</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background: #181818;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+    }
+    h1 {
+      font-size: 5em;
+      margin: 0;
+      letter-spacing: 0.1em;
+      text-shadow: 2px 2px 8px #000;
+      transition: transform 0.2s cubic-bezier(.25,.8,.25,1);
+      will-change: transform;
+      user-select: none;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+  <h1 id="pseudo">P0yexx</h1>
+  <script>
+    const h1 = document.getElementById('pseudo');
+    document.addEventListener('mousemove', (e) => {
+      const x = (e.clientX / window.innerWidth - 0.5) * 30; // -15 à +15
+      const y = (e.clientY / window.innerHeight - 0.5) * 30; // -15 à +15
+      h1.style.transform = `translate(${x}px, ${y}px) scale(1.05)`;
+    });
+    document.addEventListener('mouseleave', () => {
+      h1.style.transform = 'translate(0,0) scale(1)';
+    });
+  </script>
+</body>
+</html>
