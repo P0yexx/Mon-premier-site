@@ -2,44 +2,180 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Accueil - P0yexx</title>
+  <title>P0yexx - Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
+    :root {
+      --main-color: #00b4d8;
+      --bg-color: #181818;
+      --text-color: #fff;
+      --accent: #90e0ef;
+    }
     body {
+      margin: 0;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: var(--bg-color);
+      color: var(--text-color);
+      min-height: 100vh;
+    }
+    header {
+      text-align: center;
+      padding: 60px 20px 30px 20px;
+      background: linear-gradient(120deg, var(--main-color) 0%, var(--bg-color) 100%);
+    }
+    header h1 {
+      font-size: 3em;
+      margin: 0 0 10px 0;
+      letter-spacing: 0.1em;
+    }
+    header p {
+      font-size: 1.3em;
+      color: var(--accent);
+      margin: 0;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin: 30px 0;
+    }
+    nav a {
+      color: var(--main-color);
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1em;
+      transition: color 0.2s;
+    }
+    nav a:hover {
+      color: var(--accent);
+    }
+    section {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    h2 {
+      color: var(--main-color);
+      margin-bottom: 20px;
+      font-size: 2em;
+    }
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+    }
+    .project {
+      background: #222;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 2px 8px #0004;
+      transition: transform 0.2s;
+    }
+    .project:hover {
+      transform: translateY(-5px) scale(1.03);
+      box-shadow: 0 6px 16px #0006;
+    }
+    .project h3 {
+      margin-top: 0;
+      color: var(--accent);
+    }
+    .project p {
+      margin-bottom: 0;
+    }
+    .contact-form {
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-      background: #181818;
-      color: #fff;
-      font-family: Arial, sans-serif;
-      overflow: hidden;
+      gap: 15px;
+      max-width: 400px;
+      margin: 0 auto;
     }
-    h1 {
-      font-size: 5em;
-      margin: 0;
-      letter-spacing: 0.1em;
-      text-shadow: 2px 2px 8px #000;
-      transition: transform 0.2s cubic-bezier(.25,.8,.25,1);
-      will-change: transform;
-      user-select: none;
-      pointer-events: none;
+    .contact-form input, .contact-form textarea {
+      padding: 10px;
+      border-radius: 5px;
+      border: none;
+      font-size: 1em;
+      background: #222;
+      color: var(--text-color);
+      resize: vertical;
+    }
+    .contact-form button {
+      background: var(--main-color);
+      color: #fff;
+      border: none;
+      padding: 12px;
+      border-radius: 5px;
+      font-size: 1.1em;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .contact-form button:hover {
+      background: var(--accent);
+      color: #222;
+    }
+    footer {
+      text-align: center;
+      padding: 25px 10px;
+      color: #aaa;
+      font-size: 1em;
+      background: #151515;
+      margin-top: 40px;
+    }
+    @media (max-width: 600px) {
+      header h1 { font-size: 2em; }
+      h2 { font-size: 1.3em; }
+      nav { gap: 15px; }
     }
   </style>
 </head>
 <body>
-  <h1 id="pseudo">P0yexx</h1>
-  <script>
-    const h1 = document.getElementById('pseudo');
-    document.addEventListener('mousemove', (e) => {
-      const x = (e.clientX / window.innerWidth - 0.5) * 30; // -15 à +15
-      const y = (e.clientY / window.innerHeight - 0.5) * 30; // -15 à +15
-      h1.style.transform = `translate(${x}px, ${y}px) scale(1.05)`;
-    });
-    document.addEventListener('mouseleave', () => {
-      h1.style.transform = 'translate(0,0) scale(1)';
-    });
-  </script>
+  <header>
+    <h1>P0yexx</h1>
+    <p>Développeur web & créateur digital</p>
+    <nav>
+      <a href="#about">À propos</a>
+      <a href="#projects">Projets</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section id="about">
+    <h2>À propos de moi</h2>
+    <p>
+      Salut, je suis <b>P0yexx</b>, passionné par le développement web et la création de solutions numériques modernes.<br>
+      J’aime apprendre, expérimenter et partager mes projets avec la communauté.
+    </p>
+  </section>
+
+  <section id="projects">
+    <h2>Mes projets</h2>
+    <div class="projects">
+      <div class="project">
+        <h3>Portfolio</h3>
+        <p>Ce site web, réalisé avec HTML et CSS, présente mon parcours et mes réalisations.</p>
+      </div>
+      <div class="project">
+        <h3>Projet 2</h3>
+        <p>Un projet cool à décrire ici. Tu peux ajouter un lien ou une image si tu veux.</p>
+      </div>
+      <div class="project">
+        <h3>Projet 3</h3>
+        <p>Un autre projet, application, ou expérience à mettre en avant.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <form class="contact-form" action="mailto:ton.email@exemple.com" method="POST" enctype="text/plain">
+      <input type="text" name="Nom" placeholder="Votre nom" required>
+      <input type="email" name="Email" placeholder="Votre email" required>
+      <textarea name="Message" rows="4" placeholder="Votre message" required></textarea>
+      <button type="submit">Envoyer</button>
+    </form>
+  </section>
+
+  <footer>
+    &copy; 2024 P0yexx — Portfolio personnel. Propulsé par GitHub Pages.
+  </footer>
 </body>
 </html>
